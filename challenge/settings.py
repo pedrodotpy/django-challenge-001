@@ -10,22 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import dj_database_url
+from dotenv import find_dotenv
+from dotenv import load_dotenv
+from environs import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = Env()
+load_dotenv(find_dotenv())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t)$)dw2l+@f8u8m=-j=b_#5$uvq$vv5+v6i-(mzw^rfo$b6^c+'
+SECRET_KEY = env('SECRET_KEY', 'django-insecure-t)$)dw2l+@f8u8m=-j=b_#5$uvq$vv5+v6i-(mzw^rfo$b6^c+')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', True)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ("localhost", "127.0.0.1"))
 
 
 # Application definition
@@ -93,12 +101,8 @@ WSGI_APPLICATION = 'challenge.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASE_URL = env('DATABASE_URL', 'postgres://postgres:postgres@127.0.0.1:5432/challenge')
+DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
 
 
 # Password validation

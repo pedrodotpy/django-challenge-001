@@ -1,9 +1,29 @@
-version: '3.0'
+version: '3.8'
+
 services:
+  app:
+    build:
+      context: .
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=challenge.settings
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/app"
+    links:
+      - "db:db"
+    depends_on:
+      - db
   db:
-    image: postgres:12
+    image: postgres:10
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: "challenge"
-      POSTGRES_DB: "challenge"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
