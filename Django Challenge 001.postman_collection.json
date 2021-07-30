@@ -1,0 +1,2448 @@
+{
+	"info": {
+		"_postman_id": "0a148649-5d56-4168-af9a-250bea344333",
+		"name": "Django Challenge 001",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.collectionVariables.set(\"token\",  \"Token \" + pm.response.json().key);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}login/",
+							"host": [
+								"{{base_url}}login"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "The response altoassign the authentication token to the collection's variables."
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}login/",
+									"host": [
+										"{{base_url}}login"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 15:29:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=Ih1XRvyoJrZKgKFbiVmC1IGahtKUo55kWKGHyGnrj4vWf5YhUUtdCm9fBmocWPPF; expires=Fri, 29 Jul 2022 15:29:22 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=gme54jesr3o4r6b6q25sm3y69c9lll7b; expires=Fri, 13 Aug 2021 15:29:22 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"key\": \"80561f908d423b67d640d7b53a9b7113418a9670\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.unset(\"token\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}logout/",
+							"host": [
+								"{{base_url}}logout"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Automatically remove the authentication token from the collection's variables."
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}logout/",
+									"host": [
+										"{{base_url}}logout"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 15:32:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=\"\"; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Successfully logged out.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Articles - public",
+			"item": [
+				{
+					"name": "Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}articles?category",
+							"host": [
+								"{{base_url}}articles"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": null,
+									"description": "Category's slug"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}articles?category",
+									"host": [
+										"{{base_url}}articles"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": null,
+											"description": "Category's slug"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:56:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "333"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n            \"author\": {\n                \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n                \"name\": \"Autor #1 v2\",\n                \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n            },\n            \"category\": \"Categoria 1 nova\",\n            \"title\": \"Título...\",\n            \"summary\": \"Sumário\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}articles/:id",
+							"host": [
+								"{{base_url}}articles"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Article Logged In",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}articles/:id",
+									"host": [
+										"{{base_url}}articles"
+									],
+									"path": [
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:57:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"author\": {\n        \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n        \"name\": \"Autor #1 v2\",\n        \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n    },\n    \"category\": \"Categoria 1 nova\",\n    \"title\": \"Título...\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo...\",\n    \"body\": \"Corpo...\"\n}"
+						},
+						{
+							"name": "Article Logged Out",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}articles/:id",
+									"host": [
+										"{{base_url}}articles"
+									],
+									"path": [
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:57:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "323"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"author\": {\n        \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n        \"name\": \"Autor #1 v2\",\n        \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n    },\n    \"category\": \"Categoria 1 nova\",\n    \"title\": \"Título...\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo...\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Articles - admin",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}articles/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}articles/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:53:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "372"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n            \"createdAt\": \"2021-07-30T20:53:08.437152Z\",\n            \"updatedAt\": \"2021-07-30T20:53:08.437173Z\",\n            \"title\": \"Título\",\n            \"summary\": \"Sumário\",\n            \"firstParagraph\": \"Primeiro parágrafo\",\n            \"body\": \"Corpo\",\n            \"author\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n            \"category\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}articles/:id/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}articles/:id/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:53:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "320"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"createdAt\": \"2021-07-30T20:53:08.437152Z\",\n    \"updatedAt\": \"2021-07-30T20:53:08.437173Z\",\n    \"title\": \"Título\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo\",\n    \"body\": \"Corpo\",\n    \"author\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"category\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Título #2",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Sumário",
+									"type": "text"
+								},
+								{
+									"key": "first_paragraph",
+									"value": "Primeiro parágrafo",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Corpo",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}articles/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Título",
+											"type": "text"
+										},
+										{
+											"key": "summary",
+											"value": "Sumário",
+											"type": "text"
+										},
+										{
+											"key": "first_paragraph",
+											"value": "Primeiro parágrafo",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "Corpo",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}articles/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:53:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "320"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"createdAt\": \"2021-07-30T20:53:08.437152Z\",\n    \"updatedAt\": \"2021-07-30T20:53:08.437173Z\",\n    \"title\": \"Título\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo\",\n    \"body\": \"Corpo\",\n    \"author\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"category\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Título",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Sumário",
+									"type": "text"
+								},
+								{
+									"key": "first_paragraph",
+									"value": "Primeiro parágrafo...",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Corpo...",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}articles/:id/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Título",
+											"type": "text"
+										},
+										{
+											"key": "summary",
+											"value": "Sumário",
+											"type": "text"
+										},
+										{
+											"key": "first_paragraph",
+											"value": "Primeiro parágrafo...",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "Corpo...",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}articles/:id/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:55:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "326"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"createdAt\": \"2021-07-30T20:53:08.437152Z\",\n    \"updatedAt\": \"2021-07-30T20:55:03.929903Z\",\n    \"title\": \"Título\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo...\",\n    \"body\": \"Corpo...\",\n    \"author\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"category\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Partial",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Título...",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}articles/:id/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Partial",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Título...",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}articles/:id/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "41069bfc-9f95-436d-9809-8ed2fe98e220"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:55:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "329"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"41069bfc-9f95-436d-9809-8ed2fe98e220\",\n    \"createdAt\": \"2021-07-30T20:53:08.437152Z\",\n    \"updatedAt\": \"2021-07-30T20:55:50.946631Z\",\n    \"title\": \"Título...\",\n    \"summary\": \"Sumário\",\n    \"firstParagraph\": \"Primeiro parágrafo...\",\n    \"body\": \"Corpo...\",\n    \"author\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"category\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}articles/:id/",
+							"host": [
+								"{{base_admin_url}}articles"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c864d74d-4be8-4a6b-9349-2ac6e54ad8cf"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}articles/:id/",
+									"host": [
+										"{{base_admin_url}}articles"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "c864d74d-4be8-4a6b-9349-2ac6e54ad8cf"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:56:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authors - admin",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}authors/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}authors/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:51:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "206"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n            \"name\": \"Autor #1 v2\",\n            \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}authors/:id/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}authors/:id/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:51:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"name\": \"Autor #1 v2\",\n    \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Autor #2",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/home/pedro/Pictures/defrag.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}authors/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Autor #1",
+											"type": "text"
+										},
+										{
+											"key": "picture",
+											"type": "file",
+											"src": "/home/pedro/Pictures/defrag.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}authors/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:49:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"name\": \"Autor #1\",\n    \"picture\": \"http://127.0.0.1:8000/media/author/93fd7927-4e58-4f9b-bc0e-0ecf917eec4e.png\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Autor #1 v2",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}authors/:id/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Autor #1 v2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}authors/:id/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:50:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"name\": \"Autor #1 v2\",\n    \"picture\": \"http://127.0.0.1:8000/media/author/93fd7927-4e58-4f9b-bc0e-0ecf917eec4e.png\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Partial",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/home/pedro/Pictures/hqdefault.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}authors/:id/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Partial",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "picture",
+											"type": "file",
+											"src": "/home/pedro/Pictures/hqdefault.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}authors/:id/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "956de7cf-8790-4de6-b3c4-6b455af3af9a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:50:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"956de7cf-8790-4de6-b3c4-6b455af3af9a\",\n    \"name\": \"Autor #1 v2\",\n    \"picture\": \"http://127.0.0.1:8000/media/author/bb5ef79b-3853-4be6-9346-a91ce7b1fa5c.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}authors/:id/",
+							"host": [
+								"{{base_admin_url}}authors"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8506fddf-5e4f-4943-832e-0db466768a97"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}authors/:id/",
+									"host": [
+										"{{base_admin_url}}authors"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "8506fddf-5e4f-4943-832e-0db466768a97"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "gunicorn"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:51:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Categories - admin",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}categories/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}categories/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 15:52:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": \"f86b48b5-d5f0-4252-b3fd-726226a843d3\",\n            \"name\": \"Categoria #1\",\n            \"slug\": \"categoria-1\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}categories/:id/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "da07094f-1a2c-4dda-b974-30d975379abb"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}categories/:id/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "f86b48b5-d5f0-4252-b3fd-726226a843d3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 15:53:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f86b48b5-d5f0-4252-b3fd-726226a843d3\",\n    \"name\": \"Categoria #1\",\n    \"slug\": \"categoria-1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Categoria #2",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}categories/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Categoria #1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}categories/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 15:52:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f86b48b5-d5f0-4252-b3fd-726226a843d3\",\n    \"name\": \"Categoria #1\",\n    \"slug\": \"categoria-1\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Categoria 1 nova",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}categories/:id/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Categoria 1 nova",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}categories/:id/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "63490712-6c83-4c0f-9f99-26ac6d8dfcaa"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:46:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"63490712-6c83-4c0f-9f99-26ac6d8dfcaa\",\n    \"name\": \"Categoria 1 nova\",\n    \"slug\": \"categoria-1-nova\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Partial",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Categoria #2 nova",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_admin_url}}categories/:id/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4c6b9f89-33d6-4e37-aee4-2527bddd2d47"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Partial",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Categoria #2 nova",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_admin_url}}categories/:id/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4c6b9f89-33d6-4e37-aee4-2527bddd2d47"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:46:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"4c6b9f89-33d6-4e37-aee4-2527bddd2d47\",\n    \"name\": \"Categoria #2 nova\",\n    \"slug\": \"categoria-2-nova\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_admin_url}}categories/:id/",
+							"host": [
+								"{{base_admin_url}}categories"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4c6b9f89-33d6-4e37-aee4-2527bddd2d47"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_admin_url}}categories/:id/",
+									"host": [
+										"{{base_admin_url}}categories"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4c6b9f89-33d6-4e37-aee4-2527bddd2d47"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 30 Jul 2021 20:47:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}schema",
+					"host": [
+						"{{base_url}}schema"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/"
+		},
+		{
+			"key": "base_admin_url",
+			"value": "http://127.0.0.1:8000/api/admin/"
+		}
+	]
+}
