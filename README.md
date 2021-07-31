@@ -6,6 +6,10 @@
 git clone https://github.com/pedrodotpy/django-challenge-001
 cd django-challenge-001
 ```
+
+- Create your `.env` file using `.env-example` as an example.
+
+
 - Create a virtual environment and activate it:
 ```bash
 virtualenv -p python3 venv
@@ -33,6 +37,10 @@ python manage.py runserver 8000
 git clone https://github.com/pedrodotpy/django-challenge-001
 cd django-challenge-001
 ```
+
+- Create your `.env` file using `.env-example` as an example.
+
+
 - Make sure your `.env` is correct:
   1. `POSTGRES_HOST` must have the value `db`.
   2. It's highly advisible to change the `SECRET_KEY`.
